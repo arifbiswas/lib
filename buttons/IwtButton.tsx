@@ -1,7 +1,6 @@
 import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
 import { SvgProps, SvgXml } from "react-native-svg";
 
-import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import tw from "../tailwind";
 
@@ -19,8 +18,7 @@ interface IButton {
   disabled?: boolean;
   svgProps?: SvgProps;
   svg2Props?: SvgProps;
-  offGradient?: boolean;
-  gradinLayoutStyle?: {};
+ 
   svgTogether?: boolean;
 }
 
@@ -38,8 +36,7 @@ const IwtButton = ({
   firstSvgTitleTogether,
   svgProps,
   svg2Props,
-  offGradient,
-  gradinLayoutStyle,
+
   svgTogether,
 }: IButton) => {
   return (
@@ -54,16 +51,7 @@ const IwtButton = ({
         containerStyle,
       ]}
     >
-      <LinearGradient
-        // Background Linear Gradient
-        colors={
-          offGradient ? ["transparent", "transparent"] : ["#FF8787", "#8578B4"]
-        }
-        style={[
-          tw`w-full h-full flex-row justify-center items-center gap-3 `,
-          gradinLayoutStyle,
-        ]}
-      >
+     
         {firstSvgTitleTogether ? (
           <View style={tw`flex-row justify-center items-center gap-2`}>
             {isLoading ? (
@@ -191,7 +179,7 @@ const IwtButton = ({
             />
           )}
         </>
-      </LinearGradient>
+
     </TouchableOpacity>
   );
 };

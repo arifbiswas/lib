@@ -1,4 +1,4 @@
-import { IconSearchGray } from "@/icons/icons";
+
 import React from "react";
 import { View } from "react-native";
 import InputText from "../inputs/InputText";
@@ -21,7 +21,6 @@ const SearchCard = ({ search, setSearch }: SearchCardProps) => {
   return (
     <View style={tw`h-12 px-2`}>
       <InputText
-        svgFirstIcon={IconSearchGray}
         value={search}
         onChangeText={(text) => setSearch && setSearch(text)}
         placeholder="Search"

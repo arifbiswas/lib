@@ -1,6 +1,6 @@
 import { ActivityIndicator, Text, TouchableOpacity } from "react-native";
 
-import { LinearGradient } from "expo-linear-gradient";
+
 import React from "react";
 import tw from "../tailwind";
 
@@ -12,8 +12,7 @@ interface IButton {
   onPress?: () => void;
   loadingColor?: string;
   disabled?: boolean;
-  offGradient?: boolean;
-  gradinLayoutStyle?: {};
+
 }
 
 const TButton = ({
@@ -24,8 +23,7 @@ const TButton = ({
   onPress,
   loadingColor,
   disabled,
-  offGradient,
-  gradinLayoutStyle,
+
 }: IButton) => {
   return (
     <TouchableOpacity
@@ -39,16 +37,7 @@ const TButton = ({
         containerStyle,
       ]}
     >
-      <LinearGradient
-        // Background Linear Gradient
-        colors={
-          offGradient ? ["transparent", "transparent"] : ["#FF8787", "#8578B4"]
-        }
-        style={[
-          tw`w-full h-full flex-row justify-center items-center gap-3 rounded-full`,
-          gradinLayoutStyle,
-        ]}
-      >
+
         {isLoading && (
           <ActivityIndicator color={loadingColor ? loadingColor : "white"} />
         )}
@@ -62,7 +51,7 @@ const TButton = ({
             {title}
           </Text>
         )}
-      </LinearGradient>
+     
     </TouchableOpacity>
   );
 };

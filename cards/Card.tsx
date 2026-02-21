@@ -1,8 +1,8 @@
 import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
 
-import { AnimatedImage } from "react-native-ui-lib";
+
 import React from "react";
-import { SvgXml } from "react-native-svg";
+import { SvgXml ,Image} from "react-native-svg";
 import tw from "../tailwind";
 
 export interface ICardProps {
@@ -63,21 +63,14 @@ Card.Image = ({
         children
       ) : (
         <>
-          <AnimatedImage
-            containerStyle={[
+          <Image
+            style={[
               tw`aspect-square   items-center rounded-md`,
               containerStyle,
             ]}
-            errorSource={source}
-            // onError={e => console.log(e)}
-            animationDuration={500}
-            style={[tw`aspect-square  rounded-md`, imageStyle]}
-            loader={<ActivityIndicator color="white" size={"small"} />}
-            source={
-              source?.uri
-                ? source
-                : require("../../assets/images/icons/no_image.png")
-            }
+            source={source}
+        
+           
           />
         </>
       )}
